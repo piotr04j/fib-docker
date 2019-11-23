@@ -3,18 +3,18 @@ services:
  - docker
 
 before_install:
- - docker build -t pj/react-test -f ./client/Dockerfile.dev ./client
+ - docker build -t piotr04j/react-test -f ./client/Dockerfile.dev ./client
 
 script:
- - docker run -e CI=true pj/react-test npm test
+ - docker run -e CI=true piotr04j/react-test npm test
 
 after_script:
- - docker build -t pj/fib-client ./client
- - docker build -t pj/fib-server ./server
- - docker build -t pj/fib-worker ./worker
- - docker build -t pj/fib-nginx ./nginx
+ - docker build -t piotr04j/fib-client ./client
+ - docker build -t piotr04j/fib-server ./server
+ - docker build -t piotr04j/fib-worker ./worker
+ - docker build -t piotr04j/fib-nginx ./nginx
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
- - docker push pj/fib-client
- - docker push pj/fib-server
- - docker push pj/fib-worker
- - docker push pj/fib-nginx
+ - docker push piotr04j/fib-client
+ - docker push piotr04j/fib-server
+ - docker push piotr04j/fib-worker
+ - docker push piotr04j/fib-nginx
