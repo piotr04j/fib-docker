@@ -13,7 +13,7 @@ after_script:
  - docker build -t pj/fib-server ./server
  - docker build -t pj/fib-worker ./worker
  - docker build -t pj/fib-nginx ./nginx
- - echo "$DOCKER_PASSWORD" | docker_login -u "$DOCKER_ID" --password-stdin
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
  - docker push pj/fib-client
  - docker push pj/fib-server
  - docker push pj/fib-worker
